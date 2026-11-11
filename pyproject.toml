@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grepo-localization"
+version = "0.1.0"
+description = "Explore GREPO issues and build PyTorch Geometric localization examples"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.6", "torch-geometric>=2.6", "pandas>=2", "pyarrow>=15", "networkx>=3", "safetensors>=0.4"]
+
+[project.optional-dependencies]
+web = ["streamlit>=1.49", "plotly>=6"]
+notebook = ["jupyterlab>=4", "matplotlib>=3.8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
