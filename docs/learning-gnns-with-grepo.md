@@ -371,6 +371,7 @@ The key experimental habit is to change one stage at a time. Keep candidate gene
 
 - The project notebook: [`notebooks/01_explore_grepo.ipynb`](../notebooks/01_explore_grepo.ipynb)
 - Google Colab setup: [`docs/colab/README.md`](colab/README.md)
+- Local VS Code setup: [`docs/vscode/README.md`](vscode/README.md)
 - The interactive browser instructions: [project README](../README.md)
 - [GREPO paper](https://arxiv.org/abs/2602.13921)
 - [Official GREPO implementation](https://github.com/qingpingmo/GREPO)

@@ -29,6 +29,8 @@ Try `csvkit` GREPO issue **107**, which links to GitHub issue **#553** and has a
 
 For a hosted runtime, the recommended path is to **[open the notebook directly from GitHub in Google Colab](docs/colab/README.md)**. No repository clone is required for the normal walkthrough.
 
+For local development, follow **[Set up GREPO in Visual Studio Code](docs/vscode/README.md)**. It covers cloning, the project virtual environment, notebook kernels, Streamlit, tests, and local cache behavior.
+
 ```bash
 python -m pip install -e '.[notebook]'
 jupyter lab notebooks/01_explore_grepo.ipynb
