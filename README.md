@@ -25,15 +25,20 @@ Select a repository and click **Download repository**. Pick a GREPO issue ID, th
 
 Try `csvkit` GREPO issue **107**, which links to GitHub issue **#553** and has all three changed nodes in its candidates. Then try issue **116**, which links to GitHub issue **#185**. Its candidate set includes two of three changed nodes. Open node **12809** under **Changed by the fix** to inspect the missed code.
 
-## Run the notebook
+## Run the notebooks
 
 For a hosted runtime, the recommended path is to **[open the notebook directly from GitHub in Google Colab](docs/colab/README.md)**. No repository clone is required for the normal walkthrough.
 
 For local development, follow **[Set up GREPO in Visual Studio Code](docs/vscode/README.md)**. It covers cloning, the project virtual environment, notebook kernels, Streamlit, tests, and local cache behavior.
 
+Run the notebooks in order:
+
+1. [`01_explore_grepo.ipynb`](notebooks/01_explore_grepo.ipynb) downloads and inspects GREPO data, builds issue graphs, and measures candidate coverage.
+2. [`02_training_and_eval.ipynb`](notebooks/02_training_and_eval.ipynb) trains and evaluates localization models using the prepared issue graphs.
+
 ```bash
 python -m pip install -e '.[notebook]'
-jupyter lab notebooks/01_explore_grepo.ipynb
+jupyter lab notebooks/01_explore_grepo.ipynb notebooks/02_training_and_eval.ipynb
 ```
 
 For Colab, open the notebook from the published GitHub repository and uncomment the first install cell. Replace `OWNER/REPO` with that repository's path. Keep Colab's PyTorch installation so a GPU runtime can use CUDA. The default walkthrough runs on CPU and downloads only the selected repositories. Set `TRUST_OFFICIAL_PYG_FILES = True` in the setup cell after reviewing the graph file provenance.
@@ -49,8 +54,9 @@ For Colab, open the notebook from the published GitHub repository and uncomment 
 | `src/grepo_localization/exploration.py` | Tested table, selection, visualization-preparation, smoke-test, and export helpers used by the notebook |
 | `app/streamlit_app.py` | Repository picker, issue graph, node table, and source viewer |
 | `notebooks/01_explore_grepo.ipynb` | Dataset walkthrough, coverage analysis, PyG batching, and export |
+| `notebooks/02_training_and_eval.ipynb` | GraphSAGE and baseline training, repeated evaluation, and ranking metrics |
 
-The browser reports candidate coverage. The notebook includes a GraphSAGE forward-pass check and an anchor-first example ranking.
+The browser reports candidate coverage. Notebook 1 includes a GraphSAGE forward-pass check and an anchor-first example ranking; Notebook 2 extends that prepared data into model training and evaluation.
 
 ## Source contracts and tests
 
